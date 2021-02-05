@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="container">
+<!-- <text>添加图片页面</text> -->
+  <view class="form-box">
+    <form class="img-form" catchsubmit="formSubmit" catchreset="formReset">
+      <view class="input-item">
+        <view class="input-item-title">图片地址</view>
+        <view class="input-item-input">
+          <input name="url" placeholder="请输入图片网址" bindinput="bindModel" data-model="imgsrc"/>
+        </view>
+      </view>
+      <view class="input-item">
+        <view class="input-item-title">图片名称</view>
+        <view class="input-item-input">
+          <input name="name" placeholder="请输入图片名称" />
+        </view>
+      </view>
+      <view class="input-item">
+        <view class="input-item-title">图片描述</view>
+        <view class="input-item-input">
+          <input name="desc" placeholder="请输入图片描述" />
+        </view>
+      </view>
+      <view class="input-item">
+        <view class="input-item-title">图片来源</view>
+        <view class="input-item-input">
+          <input name="source" placeholder="请输入图片来源" />
+        </view>
+      </view>
+      <view class="input-item">
+        <button bindtap="openpreview">图片预览</button>
+      </view>
+      <view class="btn-area">
+        <view class="btn-area-reset">
+          <button formType="reset">重置</button>
+        </view>
+        <view class="btn-area-submit">
+          <button formType="submit">添加</button>
+        </view>
+      </view>
+    </form>
+  </view>
+  <view wx:if="{{showImg}}" class="model-back">
+    <view class="model">
+      <view class="preview-tit">
+        <text>图片预览</text>
+        <icon class="icon-small" type="cancel" size="23" bindtap="closepreview"></icon>
+      </view>
+      <view class="preview-con">
+         <image src="{{imgsrc}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
